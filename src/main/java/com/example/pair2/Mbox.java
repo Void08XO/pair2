@@ -97,6 +97,7 @@ public class Mbox extends VBox {
             System.out.println("Message: " + field5.getText());
         }
 
+
         field.setText("");
         field2.setText(field.getText());
         field3.setText(field.getText());
