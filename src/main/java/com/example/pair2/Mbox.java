@@ -9,7 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
+import javafx.scene.text.Font;
 
 
 public class Mbox extends VBox {
@@ -18,40 +18,59 @@ public class Mbox extends VBox {
     private Label to, cc, bcc, sub, Messi;
     private TextArea field5;
     private Button send;
+    private Font mf = new Font("Arial", 15);
 
     public Mbox() {
 
+        setAlignment(Pos.TOP_CENTER);
+
         to = new Label("To: ");
         field = new TextField();
+        field.setMinWidth(500);
+        to.setFont(mf);
+        field.setFont(mf);
 
 
         HBox F = new HBox(to, field);
         F.setSpacing(10);
-        F.setAlignment(Pos.TOP_LEFT);
+        F.setAlignment(Pos.TOP_CENTER);
 
         cc = new Label("CC: ");
+        cc.setFont(mf);
         field2 = new TextField();
+        field2.setMinWidth(field.getMinWidth());
+
+        field2.setFont(mf);
 
         HBox F2 = new HBox(cc, field2);
         F2.setSpacing(F.getSpacing());
-        F2.setAlignment(Pos.CENTER_LEFT);
+        F2.setAlignment(Pos.TOP_CENTER);
 
         bcc = new Label("BCC: ");
+        bcc.setFont(mf);
         field3 = new TextField();
+        field3.setMinWidth(field.getMinWidth());
+        field3.setFont(mf);
 
         HBox F3 = new HBox(bcc, field3);
         F3.setSpacing(F.getSpacing());
         F3.setAlignment(F2.getAlignment());
 
         sub = new Label("Subject: ");
+        sub.setFont(mf);
         field4 = new TextField();
+        field4.setMinWidth(field.getMinWidth());
+        field4.setFont(mf);
 
         HBox F4 = new HBox(sub, field4);
         F4.setAlignment(F2.getAlignment());
         F4.setSpacing(F.getSpacing());
 
         Messi = new Label("Message: ");
+        Messi.setFont(mf);
         field5 = new TextArea();
+        field5.setMinWidth(field.getMinWidth());
+        field5.setFont(mf);
 
         HBox F5 = new HBox(Messi, field5);
         F5.setAlignment(F2.getAlignment());
@@ -60,6 +79,8 @@ public class Mbox extends VBox {
 
         send = new Button("Send");
         send.setOnAction(this::TextCheck);
+        send.setAlignment(Pos.TOP_CENTER);
+        send.setFont(mf);
 
         setPadding(new Insets(10, 10, 10, 10));
         setSpacing(20);
@@ -76,5 +97,10 @@ public class Mbox extends VBox {
             System.out.println("Message: " + field5.getText());
         }
 
+        field.setText("");
+        field2.setText(field.getText());
+        field3.setText(field.getText());
+        field4.setText(field.getText());
+        field5.setText(field.getText());
     }
 }
